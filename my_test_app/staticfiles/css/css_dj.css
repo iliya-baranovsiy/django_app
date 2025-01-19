@@ -1,0 +1,157 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: -webkit-linear-gradient(90deg,#250055,#5200a3,#6600ff,#3e00b3,#070055); background: linear-gradient(90deg,#250055,#5200a3,#6600ff,#3e00b3,#070055);;
+}
+
+.slot-machine {
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #fff;
+  background-image: url('/static/images/dis_1.png');
+  background-size: 450px 250px;
+  margin-left: -13px;
+}
+
+.reels {
+  display: flex;
+  overflow: hidden;
+  height: 100px;
+  position: relative;
+}
+
+.reel {
+  font-size: 10px;
+  height: 100%; /* Высота для анимации */
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease;
+  margin: 0 7px;  /* Уменьшаем отступы между элементами */
+}
+
+/* Для эффекта прокрутки */
+.spinning {
+  animation: spin 1s forwards;
+}
+
+@keyframes spin {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-300%); } /* Подгоните значение по количеству символов */
+}
+
+#spin-button {
+  background-color: gold;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  height: 30px;
+  width: 130px;
+  margin: 10px auto;
+  display: block;
+}
+
+.reel img {
+  max-width: 100%;  /* Изображение не будет превышать ширину родителя */
+  height: auto;      /* Высота подбирается автоматом */
+}
+
+
+#rait-button {
+  background-color: orange;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  height: 30px;
+  width: 130px;
+  margin: 10px auto;
+  display: block;
+  position: absolute;
+  margin-top: -150px;
+  margin-left: 45px;
+}
+
+#win {
+  background-color: red;
+  text-align: left;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  height: 35px;
+  width: 170px;
+  margin: 10px auto;
+  display: block;
+  position: absolute;
+  margin-top: 130px;
+  margin-left: 112px;
+}
+
+#result-container {
+  background-color: rgb(193, 36, 96);
+  color: white;
+  border-radius: 20px;
+  border: none;
+  height: 30px;
+  width: 130px;
+  margin: 10px auto;
+  display: block;
+  position: absolute;
+  margin-top: -150px;
+  margin-left: 215px;
+}
+
+#Name {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 20px;
+  border: none;
+  height: 30px;
+  width: 130px;
+  margin: 10px auto;
+  display: block;
+  position: absolute;
+  margin-top: -260px;
+  margin-left: 50px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 130px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(41, 61, 119);
+  border-radius: 10px;
+  /*padding: 20px;   Уменьшаем отступ для мобильных */
+  z-index: 1000;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  /*width: 90%;   Ширина попапа для мобильных устройств */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
+
+.close-popup {
+  background-color: rgba(197, 37, 203, 0.529);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+

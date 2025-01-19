@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слот-машина</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css_dj.css' %}">
+</head>
+<body>
+
+<div>
+    <button id="rait-button">ТОП</button>
+    <button id="result-container"></button>
+    <button id="win">WIN:</button>
+    <button id="Name">{{name}}</button>
+</div>
+
+<div class="slot-machine">
+    <div class="reels">
+        <div class="reel" id="reel_1"><img src="{% static 'images/banana.png' %}"/></div>
+        <div class="reel" id="reel_2"><img src="{% static 'images/grape.png' %}"/></div>
+        <div class="reel" id="reel_3"><img src="{% static 'images/cherry.png' %}"/></div>
+    </div>
+    <button id="spin-button">SPIN</button>
+</div>
+
+<div class="popup-overlay" id="popup-overlay"></div>
+<div class="popup" id="popup">
+    <h2>Рейтинг</h2>
+    {% if us_list %}
+    <ul>
+        {% for i in us_list %}
+        <li>{{ forloop.counter }}. {{ i }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Нет данных для отображения.</p>
+    {% endif %}
+    <button class="close-popup">Закрыть</button>
+    <script type="module" src="{% static 'js/pop_up.js' %}"></script>
+</div>
+
+<script>
+    const images = [
+        '{% static "images/grape.png" %}',
+        '{% static "images/banana.png" %}',
+        '{% static "images/cherry.png" %}'
+    ];
+</script>
+<script type="module" src="{% static 'js/anim_spin.js' %}"></script>
+</body>
+</html>
