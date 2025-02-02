@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: rgb(1,5,84);
+  background: linear-gradient(200deg, rgba(1,5,84,1) 0%, rgba(10,91,149,1) 51%, rgba(2,6,75,1) 100%);
+  }
+
+.loading-message {
+  font-size: 110px;
+  text-align: center;
+  font-weight: bold;
+  color: White;
+  }
+
+.loading-image {
+  width: 140px; /* Размер картинки */
+  height: 140px; /* Размер картинки */
+  animation: spin 1s linear infinite; /* Анимация вращения */
+  margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+

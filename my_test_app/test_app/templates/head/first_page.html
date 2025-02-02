@@ -3,28 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Загрузка...</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .loading-message {
-            font-size: 24px;
-            text-align: center;
-        }
-    </style>
+    <title>load...</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/loading.css' %}">
 </head>
 <body>
     <div class="loading-message">
-        Пожалуйста, подождите, идет загрузка...<br>
-        Вы будете перенаправлены через 10 секунд.
+    <img src="{% static 'images/kayn.jpg' %}" alt="Загрузка..." class="loading-image">
+        <p>loading</p>
     </div>
+    <script>
+        window.onload = function() {
+    setTimeout(function() {
+        document.querySelector('.loading-message').style.display = 'none';
+    }, 3000);
+    };
+    </script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="module" src="{% static 'js/redirect.js' %}"></script>
+
 </body>
 </html>
