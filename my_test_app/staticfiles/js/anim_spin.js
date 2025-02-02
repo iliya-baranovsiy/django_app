@@ -15,13 +15,21 @@ let def_cur = 0;
 get_cur(id).then(cur => {
     def_cur = cur;
     resultContainer.innerHTML = `Money: ${def_cur}`;
+    checkSpinButtonStatus();
 });
+
+function checkSpinButtonStatus() {
+    spinButton.disabled = def_cur < 10;
+}
 
 function getRandomImage() {
     return images[Math.floor(Math.random() * images.length)];
 }
 
 function spin() {
+    if (def_cur < 10) {
+        return;
+    }
     win_but.innerHTML = `win: ${0}`;
     def_cur -= 10;
     post(id, undefined, def_cur);
